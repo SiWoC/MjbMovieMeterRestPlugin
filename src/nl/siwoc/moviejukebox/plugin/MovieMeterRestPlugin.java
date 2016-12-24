@@ -51,7 +51,7 @@ public class MovieMeterRestPlugin extends ImdbPlugin {
 	private static final String MOVIEMETER_REST_BASE_URL = "http://www.moviemeter.nl/api/film/";
 	public static final String MOVIEMETER_REST_PLUGIN_ID = "movieMeterRest";
 	private static final Logger LOGGER = Logger.getLogger(MovieMeterRestPlugin.class);
-	private static final String LOG_MESSAGE = "MovieMeterRestPlugin 0.9.1: ";
+	private static final String LOG_MESSAGE = "MovieMeterRestPlugin 0.9.2: ";
 
 	private SearchEngineTools searchEngineTools;
 
@@ -72,7 +72,7 @@ public class MovieMeterRestPlugin extends ImdbPlugin {
 		HashMap<String, Object> soof = plugin.getMovieDetailsById("90303");
 		System.out.println("title " + soof.get("title"));
 		*/
-		System.out.println(" id " + plugin.getMovieId("Transformers 4 Age Of Extinction","2014"));
+		System.out.println(" id " + plugin.getMovieId("Brave","2012"));
 
 	}
 
@@ -353,7 +353,7 @@ public class MovieMeterRestPlugin extends ImdbPlugin {
 	 * @return HashMap containing movie details
 	 */
 	private HashMap<String, Object> getMovieDetailsById(String id) {
-		return getMovieInfoByUrl(MOVIEMETER_REST_BASE_URL + id + "&api_key=" + MOVIEMETER_API_KEY, ResponseType.DETAIL);
+		return getMovieInfoByUrl(MOVIEMETER_REST_BASE_URL + id + "?api_key=" + MOVIEMETER_API_KEY, ResponseType.DETAIL);
 	}
 
 	@SuppressWarnings("unchecked")
